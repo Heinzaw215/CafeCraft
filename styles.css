@@ -1,0 +1,633 @@
+/* styles.css — CaféCraft
+  Mobile-first responsive layout with accessible components
+  Theme variables (change here to re-theme)
+*/
+:root {
+  --deep: #3b2f2f;
+  /* deep coffee */
+  --light: #a87f6f;
+  /* light brown */
+  --accent: #d9a15a;
+  /* caramel */
+  --cream: #f7f2ea;
+  /* cream */
+  --bg: var(--cream);
+  --text: #2b2626;
+  --max-width: 1100px;
+  --radius: 12px;
+  --transition: 240ms ease;
+}
+
+/* Keep focus outlines for accessibility */
+:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h3 {
+  text-decoration: underline var(--accent);
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.45;
+  scroll-behavior: smooth;
+  /* smooth internal scrolling */
+}
+
+/* Container helper */
+.container {
+  width: clamp(92%, 1000px, var(--max-width));
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header */
+.site-header {
+  background: linear-gradient(180deg, rgba(59, 47, 47, 0.03), transparent);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid rgba(59, 47, 47, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.15rem
+}
+
+.brand-small {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Nav (hidden on very small screens) */
+.primary-nav {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem
+}
+
+/* Buttons */
+.btn {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer
+}
+
+.btn-cta {
+  background: var(--deep);
+  color: var(--cream)
+}
+
+.btn-outline {
+  border: 1px solid var(--light);
+  background: transparent;
+  color: var(--text)
+}
+
+/* Hamburger */
+.hamburger {
+  background: transparent;
+  border: 0;
+  padding: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* Drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  pointer-events: none
+}
+
+.mobile-drawer[aria-hidden="true"] {
+  visibility: hidden;
+  opacity: 0
+}
+
+.mobile-drawer[aria-hidden="false"] {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1
+}
+
+.drawer-inner {
+  width: 280px;
+  background: linear-gradient(180deg, var(--cream), #fff);
+  box-shadow: -8px 0 30px rgba(43, 37, 37, 0.12);
+  padding: 1.25rem;
+  transform: translateX(8%);
+  transition: transform var(--transition)
+}
+
+.mobile-drawer[aria-hidden="false"] .drawer-inner {
+  transform: translateX(0)
+}
+
+.drawer-close {
+  border: 0;
+  background: transparent;
+  font-size: 1.6rem
+}
+
+/* Hero */
+.hero {
+  padding: 1.25rem 0 2rem
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: center
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin: 0;
+  color: var(--deep)
+}
+
+.lead {
+  color: #5a504f
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 12px;
+  display: block
+}
+
+/* Short links & testimonials */
+.short-links {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  margin-top: 0.75rem;
+  list-style: none
+}
+
+.short-links a {
+  text-decoration: none;
+  color: var(--light)
+}
+
+.testimonials {
+  margin-top: 1.25rem
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem
+}
+
+.testi {
+  background: linear-gradient(180deg, rgba(217, 161, 90, 0.06), transparent);
+  padding: 0.9rem;
+  border-radius: 10px;
+}
+
+/* Sections */
+.section {
+  padding: 1.25rem 0
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+  color: var(--deep);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 60ms var(--transition);
+}
+
+.section-title:hover {
+  text-decoration: underline var(--accent);
+}
+
+.muted {
+  color: #6d6666
+}
+
+/* Menu / About / Contact grid styles */
+.menu-grid {
+  display: grid;
+  gap: 1rem
+}
+
+.menu-card {
+  list-style-type: none;
+  background: #fff;
+  padding: 0.9rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(43, 37, 37, 0.04)
+}
+
+.fx {
+  display: flex;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: center
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem
+}
+
+.form input,
+.form select,
+.form textarea {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ddd
+}
+
+.form-status {
+  margin-top: 0.5rem;
+  color: var(--deep)
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(59, 47, 47, 0.06);
+  padding: 1.25rem 0;
+  margin-top: 1rem
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--transition)
+}
+
+.modal[aria-hidden="false"] {
+  visibility: visible;
+  opacity: 1
+}
+
+.modal-panel {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  width: clamp(300px, 90%, 540px);
+  box-shadow: 0 10px 40px rgba(43, 37, 37, 0.15);
+  position: relative
+}
+
+.modal-close {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.25rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.4rem
+}
+
+/* Responsive breakpoints: 375px (mobile baseline), 768px (tablet), 1100px (desktop) */
+@media(min-width: 600px) {
+  .primary-nav {
+    display: block
+  }
+
+  .hamburger {
+    display: none
+  }
+
+  .nav-list {
+    display: flex
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr 480px
+  }
+
+  .testi-grid {
+    grid-template-columns: repeat(3, 1fr)
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr)
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr 420px
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 320px
+  }
+}
+
+@media(min-width: 1100px) {
+  .hero-title {
+    font-size: 2.25rem
+  }
+}
+
+/* Tiny entrance animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 600ms var(--transition) forwards
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+/* -----------------------------
+   MICROINTERACTIONS (buttons & links)
+   ----------------------------- */
+
+/* Make interactive elements visually responsive */
+.btn,
+.nav-list a,
+.drawer-nav a,
+.footer-links a {
+  position: relative;
+  /* needed for ripple */
+  overflow: hidden;
+  /* clip ripple */
+  transition: transform 180ms var(--transition), box-shadow 180ms var(--transition), color 180ms var(--transition);
+  will-change: transform;
+}
+
+/* Hover / focus lift */
+.btn:hover,
+.nav-list a:hover,
+.drawer-nav a:hover,
+.footer-links a:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+/* Pressed/active state: subtle push */
+.btn:active,
+.nav-list a:active,
+.drawer-nav a:active,
+.footer-links a:active {
+  transform: translateY(0) scale(0.995);
+}
+
+/* Preserve clear keyboard focus (already kept, but make it warmer) */
+.btn:focus,
+.nav-list a:focus,
+.drawer-nav a:focus,
+.footer-links a:focus {
+  outline: 3px solid rgba(217, 161, 90, 0.22);
+  outline-offset: 3px;
+}
+
+/* Animated underline for plain links (nice touch) */
+.nav-list a,
+.footer-links a,
+.short-links a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-list a::after,
+.footer-links a::after,
+.short-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms var(--transition);
+  opacity: 0.95;
+}
+
+.nav-list a:hover::after,
+.footer-links a:hover::after,
+.short-links a:hover::after,
+.nav-list a:focus::after,
+.footer-links a:focus::after {
+  transform: scaleX(1);
+}
+
+/* Ripple element used by JS */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0.45;
+  pointer-events: none;
+  background: rgba(217, 161, 90, 0.9);
+  /* caramel-ish */
+  animation: ripple 600ms cubic-bezier(.2, .8, .2, 1);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* Make sure touch devices see slightly larger interaction */
+@media (hover: none) {
+
+  .btn,
+  .nav-list a,
+  .drawer-nav a,
+  .footer-links a {
+    transition: none;
+  }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .btn,
+  .nav-list a,
+  .drawer-nav a,
+  .footer-links a,
+  .ripple,
+  .nav-list a::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .btn:hover,
+  .nav-list a:hover {
+    transform: none !important;
+  }
+}
+
+/* -----------------------------
+   END MICROINTERACTIONS
+   ----------------------------- */
+
+.menu-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: .6rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.04);
+  max-width: 520px;
+}
+
+/* Grid for featured item and each row */
+.item-grid,
+.menu-item {
+  display: grid;
+  grid-template-columns: 1fr auto; /* left = content, right = price */
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.45rem 0;
+}
+
+/* Slight visual separation between list items */
+.menu-item + .menu-item {
+  border-top: 1px dashed rgba(0,0,0,.06);
+  margin-top: 0.45rem;
+  padding-top: 0.6rem;
+}
+
+/* Left column styling */
+.item-left .item-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.item-left .item-desc {
+  margin: 0.25rem 0 0;
+  font-size: 0.88rem;
+  color: #6b6b6b; /* muted */
+}
+
+/* Right column (price) styling */
+.item-right {
+  text-align: right;
+  white-space: nowrap; /* prevents price wrapping */
+}
+
+.item-price {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+/* Spacing for the main featured block */
+.featured {
+  border-bottom: 1px solid rgba(0,0,0,.04);
+  padding-bottom: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Optional: reduce gap on small screens */
+@media (max-width: 420px) {
+  .menu-card { padding: .8rem; }
+  .item-grid,
+  .menu-item { gap: .5rem; }
+  .item-price { font-size: 0.95rem; }
+}

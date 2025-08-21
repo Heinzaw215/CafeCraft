@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../style/menu.css">
+</head>
+
+<body>
+  <!--  ====================
+        Header / Navbar
+        ==================== -->
+  <cafe-navbar></cafe-navbar>
+
+  <!--  ====================
+        Main Content
+        ==================== -->
+  <main class="site-content">
+    <section class="menu-section">
+      <h1 class="section-title">Our Menu</h1>
+      <p>Explore our delicious offerings crafted with care.</p>
+      <div class="menu-items">
+      </div>
+    </section>
+  </main>
+  <h2>Coffee List</h2>
+  <ul id="coffeeList"></ul>
+
+  <h2>Tea List</h2>
+  <ul id="teaList"></ul>
+
+  <h2>Pastry List</h2>
+  <ul id="pastryList"></ul>
+
+  <script src="../app.js"></script>
+  <script src="../script/dataProvider.js" defer></script>
+  <script type="module" src="../components/navbar.js"></script>
+</body>
+
+</html>

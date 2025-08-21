@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CaféCraft — Handcrafted Coffee | Home Page</title>
+  <link rel="icon" href="assets/logo-illustration.svg" type="image/x-icon">
+  <meta name="description"
+    content="CaféCraft — a responsive, accessible coffee shop single-page website template built with HTML, CSS and vanilla JS.">
+  <meta name="keywords" content="coffee, café, single-page, responsive, accessible, HTML, CSS, JavaScript">
+  <meta name="author" content="Heinz.Zaw">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../styles.css">
+
+  <script src="https://unpkg.com/wicg-inert/dist/inert.min.js"></script>
+</head>
+
+<body>
+  <cafe-navbar></cafe-navbar>
+
+  <!--  ====================
+        Main (single page sections)
+        ==================== -->
+  <main>
+    <!-- HOME -->
+    <section id="home" class="section hero" aria-labelledby="homeTitle">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 id="homeTitle" class="hero-title">Handcrafted coffee, <br> thoughtfully brewed.</h1>
+          <p class="lead">Welcome to <b>CaféCraft - </b> <br> Where deep flavor and cozy vibes meet. <br> Try our
+            signature blends or
+            order ahead.</p>
+
+          <div class="hero-cta">
+            <a class="btn btn-cta" id="orderBtnHero" href="#order">Order Now</a>
+            <a class="btn btn-outline" href="#menu">View Menu</a>
+          </div>
+
+          <ul class="short-links" aria-hidden="false">
+            <li><a href="#menu">Menu highlights</a></li>
+            <li><a href="#about">Our story</a></li>
+            <li><a href="contact.html">Contact &amp; hours</a></li>
+          </ul>
+        </div>
+
+        <div class="hero-image" aria-hidden="false">
+          <!-- lightweight placeholder SVG image (in assets) -->
+          <img src="../assets/hero-illustration.jpeg" alt="A warm cup of coffee on a wooden table" loading="lazy"
+            width="520" height="360">
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- MENU -->
+    <section id="menu" class="section" aria-labelledby="menuTitle">
+      <div class="container">
+        <h2 id="menuTitle" class="section-title">Menu</h2>
+        <p class="muted">Hand-picked beans, freshly brewed. Sample items below.</p>
+
+        <ul class="menu-grid">
+          <li class="menu-card">
+            <h3>Coffee</h3>
+            <!-- <p class="muted">Our specialty coffee is sourced from the best farms around the world. <br> Each cup is
+              crafted with care.</p>
+            <button type="button" class="btn btn-cta" id="orderBtnCoffee">Order Coffee</button> -->
+
+
+            <ul class="service-box-container" id="MenuItemBoxContainer"></ul>
+
+            <!-- List of items — each is a grid row -->
+            <ul class="menu-list">
+              <li class="menu-item">
+                <div class="item-left">
+                  <p class="item-title"><strong>Espresso</strong></p>
+                  <p class="item-desc">Intense shot · Single shot</p>
+                </div>
+                <div class="item-right">
+                  <p class="item-price">$2.50</p>
+                </div>
+              </li>
+
+              <li class="menu-item">
+                <div class="item-left">
+                  <p class="item-title"><strong>Latte</strong></p>
+                  <p class="item-desc">Steamed milk &amp; espresso</p>
+                </div>
+                <div class="item-right">
+                  <p class="item-price">$3.50</p>
+                </div>
+              </li>
+
+              <li class="menu-item">
+                <div class="item-left">
+                  <p class="item-title"><strong>Pour Over</strong></p>
+                  <p class="item-desc">Single origin</p>
+                </div>
+                <div class="item-right">
+                  <p class="item-price">$4.00</p>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-card">
+            <h3>Tea</h3>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <div class="item-left">
+                  <p class="item-title"><strong>Matcha Latte</strong></p>
+                  <p class="item-desc">Ceremonial grade</p>
+                </div>
+                <div class="item-right">
+                  <p class="item-price">$3.75</p>
+                </div>
+              </li>
+              <li><strong>Matcha Latte</strong> <br> Ceremonial grade · $3.75</li>
+              <li><strong>Chai</strong> <br> Spiced &amp; milky · $3.25</li>
+              <li><strong>Herbal</strong> <br> Seasonal blend · $2.75</li>
+            </ul>
+          </li>
+
+          <li class="menu-card">
+            <h3>Pastries</h3>
+            <ul>
+              <li><strong>Butter Croissant</strong> <br> Flaky &amp; warm · $2.75</li>
+              <li><strong>Almond Croissant</strong> <br> Filled with almond cream · $3.00</li>
+              <li><strong>Blueberry Muffin</strong> <br> House-made · $2.50</li>
+              <li><strong>Banana Bread</strong> <br> Freshly sliced · $3.00</li>
+            </ul>
+          </li>
+        </ul>
+
+        <a type="button" href="menu.html">Explore More Menus</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <!-- <section id="about" class="section about" aria-labelledby="aboutTitle">
+      <div class="container about-inner">
+        <div>
+          <h2 id="aboutTitle" class="section-title">About CaféCraft</h2>
+          <p>Founded on a love for craft roasting and community. <br> We source ethically and brew deliberately.</p>
+          <ul class="contact-info">
+            <li><strong>Hours:</strong> Mon–Fri 7:00–18:00 · Sat–Sun 8:00–17:00</li>
+            <li><strong>Phone:</strong> +95 9 123 456 789</li>
+            <li><strong>Address:</strong> 123 Bean Lane, Yangon (placeholder)</li>
+          </ul>
+        </div>
+
+        <div class="about-image">
+          <img src="assets/about-photo.svg" alt="Interior of CaféCraft with people enjoying coffee" loading="lazy"
+            width="420" height="320">
+        </div>
+      </div>
+    </section> -->
+
+  </main>
+
+  <!-- Testimonials -->
+  <section class="container testimonials" aria-label="Customer testimonials">
+    <h2 class="section-title">What customers say</h2>
+
+    <div class="testi-grid">
+      <blockquote class="testi">
+        <p>"The best flat white in town — velvety and perfectly balanced."</p>
+        <cite>— Aye</cite>
+      </blockquote>
+      <blockquote class="testi">
+        <p>"Cozy spot and friendly baristas. Love the pastries too!"</p>
+        <cite>— Min</cite>
+      </blockquote>
+      <blockquote class="testi">
+        <p>"Great place to work for an afternoon. Reliable Wi-Fi and strong brew."</p>
+        <cite>— Ko</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact" aria-labelledby="contactTitle">
+    <div class="container">
+      <h2 id="contactTitle" class="section-title">Contact</h2>
+      <p class="muted">Have a question, feedback, or want to book a small event?</p>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="form" novalidate>
+          <label for="c-name">* Name:</label>
+          <input id="c-name" name="name" type="text" placeholder="Enter your name" aria-placeholder="Enter your name"
+            required>
+
+          <label for="c-email">* Email:</label>
+          <input id="c-email" name="email" type="email" placeholder="Enter your email"
+            aria-placeholder="Enter your name" required>
+
+          <label for="c-message">* Message:</label>
+          <textarea id="c-message" name="message" rows="4" placeholder="Enter your message"
+            aria-placeholder="Enter your name" required></textarea>
+
+          <button type="submit" class="btn">Send message</button>
+          <p id="contactStatus" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="brand-small">
+          <img src="assets/logo-illustration.svg" alt="footer logo" width="30" height="30" loading="lazy">
+          <span>CaféCraft</span>
+        </div>
+        <p class="muted small">Preserved © <span id="year"></span>
+          CaféCraft- Brew Coffee with love <br>
+          Address: 45 Artisan Lane, Downtown Yangon <br>
+          Phone no: +95 9 876 543 210 <br>
+          Email: info@cafecraft.com.mm
+        </p>
+        <p>
+          Created by <a href="#" class="muted">Heinz.Zaw</a> with love. <br>
+        </p>
+      </div>
+
+      <div class="contact-card muted" aria-hidden="false">
+        <h3>Visit Us</h3>
+        <p>We're always happy to see you. <br> Come by for a cup.</p>
+        <ul>
+          <li><strong>Hours:</strong> Mon - Fri in 7:00 - 18:00</li>
+          <li><strong>Phone:</strong> +95 9 123 456 789</li>
+          <li><strong>Address:</strong> 123 Bean Lane, Yangon</li>
+        </ul>
+      </div>
+
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <!-- ORDER MODAL -->
+  <div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle" aria-hidden="true"
+    inert>
+    <div class="modal-panel" role="document">
+      <button type="button" class="modal-close" id="orderClose" aria-label="Close order form">&times;</button>
+      <h3 id="orderTitle">Place an Order</h3>
+
+      <form id="orderForm" class="form" novalidate>
+        <label for="o-name">Name</label>
+        <input id="o-name" name="name" type="text" required>
+
+        <label for="o-phone">Phone</label>
+        <input id="o-phone" name="phone" type="tel" required>
+
+        <label for="o-item">Item</label>
+        <select id="o-item" name="item" required>
+          <option value="">Select an item</option>
+          <option>Espresso</option>
+          <option>Latte</option>
+          <option>Pour Over</option>
+          <option>Matcha Latte</option>
+          <option>Butter Croissant</option>
+        </select>
+
+        <label for="o-qty">Quantity</label>
+        <input id="o-qty" name="quantity" type="number" min="1" value="1" required>
+
+        <label for="o-notes">Notes (optional)</label>
+        <textarea id="o-notes" name="notes" rows="2"></textarea>
+
+        <button type="submit" class="btn btn-cta">Send Order</button>
+        <p id="orderStatus" class="form-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add before your app.js -->
+  <script src="https://unpkg.com/wicg-inert/dist/inert.min.js"></script>
+
+  <!-- main JS -->
+  <script src="../app.js"></script>
+  <script src="../script/dataProvider.js" defer></script>
+  <script type="module" src="../components/navbar.js" defer></script>
+</body>
+
+</html>

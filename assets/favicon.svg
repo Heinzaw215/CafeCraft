@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+  <!-- Cup base -->
+  <path d="M12 20 h20 a6 6 0 0 1 0 12 h-2 a10 10 0 0 1 -20 0 v-12 z" 
+        fill="#3b2f2f" stroke="#3b2f2f" stroke-width="2" stroke-linejoin="round"/>
+  
+  <!-- Cup outline -->
+  <path d="M12 20 h20 a6 6 0 0 1 0 12 h-2 a10 10 0 0 1 -20 0 v-12 z" 
+        fill="none" stroke="#f7f2ea" stroke-width="1.5" stroke-linejoin="round"/>
+  
+  <!-- Steam -->
+  <path d="M18 10 q-2 4 0 8" stroke="#d9a15a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M24 8 q-2 5 0 10" stroke="#d9a15a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M30 10 q-2 4 0 8" stroke="#d9a15a" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>
