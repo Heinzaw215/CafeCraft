@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description"
-  content="Get in touch with CaféCraft - artisanal coffee shop. Visit us, call, or send a message. We’re here to serve you!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Get in touch with CaféCraft - artisanal coffee shop. Visit us, call, or send a message. We’re here to serve you!">
   <meta name="keywords" content="coffee, café, single-page, responsive, accessible, HTML, CSS, JavaScript">
   <meta name="author" content="CaféCraft Team">
   <title>CaféCraft - Handcrafted Coffee | About Page</title>
-  
+
   <!-- Favicon -->
   <link rel="icon" href="../assets/favicon.svg" type="image/x-icon">
 
@@ -26,11 +27,14 @@
     <section class="about-section section-padding">
       <div class="container">
         <h1>About Us</h1>
-        <p>Welcome to <strong>CaféCraft</strong>, where we blend passion with quality <br> to create the perfect coffee experience. <br> Our journey began with a simple love for coffee and a desire to share that passion with others.
+        <p>Welcome to <strong>CaféCraft</strong>, where we blend passion with quality <br> to create the perfect coffee
+          experience. <br> Our journey began with a simple love for coffee and a desire to share that passion with
+          others.
         </p>
         <p>We source the finest beans from around the world, ensuring that every cup is a masterpiece. Our skilled
           baristas craft beverages that taste great and tell a story.</p>
-        <p>Join us in our cozy café or order online to enjoy our handcrafted drinks at home. <br> We look forward to serving
+        <p>Join us in our cozy café or order online to enjoy our handcrafted drinks at home. <br> We look forward to
+          serving
           you!</p>
       </div>
     </section>
@@ -99,6 +103,42 @@
         Footer
         ==================== -->
   <cafe-footer></cafe-footer>
+
+  <!-- ORDER MODAL -->
+  <div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle" aria-hidden="true"
+    inert>
+    <div class="modal-panel" role="document">
+      <button type="button" class="modal-close" id="orderClose" aria-label="Close order form">&times;</button>
+      <h3 id="orderTitle">Place an Order</h3>
+
+      <form id="orderForm" class="form" novalidate>
+        <label for="o-name">Name</label>
+        <input id="o-name" name="name" type="text" required>
+
+        <label for="o-phone">Phone</label>
+        <input id="o-phone" name="phone" type="tel" required>
+
+        <label for="o-item">Item</label>
+        <select id="o-item" name="item" required>
+          <option value="">Select an item</option>
+          <option>Espresso</option>
+          <option>Latte</option>
+          <option>Pour Over</option>
+          <option>Matcha Latte</option>
+          <option>Butter Croissant</option>
+        </select>
+
+        <label for="o-qty">Quantity</label>
+        <input id="o-qty" name="quantity" type="number" min="1" value="1" required>
+
+        <label for="o-notes">Notes (optional)</label>
+        <textarea id="o-notes" name="notes" rows="2"></textarea>
+
+        <button type="submit" class="btn btn-cta">Send Order</button>
+        <p id="orderStatus" class="form-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
 
   <script src="../app.js"></script>
   <script type="module" src="../components/navbar.js"></script>

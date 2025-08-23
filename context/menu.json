@@ -98,20 +98,6 @@
     "category": "Tea"
   },
   {
-    "name": "Matcha Latte",
-    "description": "Vibrant green tea latte",
-    "price": "3500 MMK",
-    "image": "../assets/MatchaLatte.webp",
-    "category": "Tea"
-  },
-  {
-    "name": "Lemon Ginger Tea",
-    "description": "Zesty and warming",
-    "price": "2400 MMK",
-    "image": "../assets/LemonGingerTea.webp",
-    "category": "Tea"
-  },
-  {
 
     "name": "Croissant",
     "description": "Buttery pastry",
