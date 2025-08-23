@@ -7,7 +7,7 @@ class CafeFooter extends HTMLElement {
     <div class="container footer-inner">
       <div>
         <div class="brand-small">
-          <img src="assets/logo-illustration.svg" alt="footer logo" width="30" height="30" loading="lazy">
+          <img src="../assets/favicon.svg" alt="footer logo" width="30" height="30" loading="lazy">
           <span>CaféCraft</span>
         </div>
         <p class="muted small">Preserved © ${year}</span>

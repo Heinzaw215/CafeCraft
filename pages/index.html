@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CaféCraft — Handcrafted Coffee | Home Page</title>
-  <link rel="icon" href="assets/logo-illustration.svg" type="image/x-icon">
   <meta name="description"
-    content="CaféCraft — a responsive, accessible coffee shop single-page website template built with HTML, CSS and vanilla JS.">
+    content="Get in touch with CaféCraft - artisanal coffee shop. Visit us, call, or send a message. We’re here to serve you!">
+  <link rel="icon" href="../assets/favicon.svg" type="image/x-icon">
   <meta name="keywords" content="coffee, café, single-page, responsive, accessible, HTML, CSS, JavaScript">
-  <meta name="author" content="Heinz.Zaw">
+  <meta name="author" content="CaféCraft Team">
 
   <!-- Google Fonts -->
   <link
@@ -52,7 +52,7 @@
 
         <div class="hero-image" aria-hidden="false">
           <!-- lightweight placeholder SVG image (in assets) -->
-          <img src="../assets/hero-illustration2.webp" alt="A warm cup of coffee on a wooden table" loading="lazy"
+          <img src="../assets/hero-illustration.webp" alt="A warm cup of coffee on a wooden table" loading="lazy"
             width="520" height="360">
         </div>
       </div>
@@ -67,16 +67,9 @@
         <p class="muted">Hand-picked beans, freshly brewed. Sample items below.</p>
 
         <ul class="menu-grid">
+          <!-- Coffee -->
           <li class="menu-card">
             <h3>Coffee</h3>
-            <!-- <p class="muted">Our specialty coffee is sourced from the best farms around the world. <br> Each cup is
-              crafted with care.</p>
-            <button type="button" class="btn btn-cta" id="orderBtnCoffee">Order Coffee</button> -->
-
-
-            <ul class="service-box-container" id="MenuItemBoxContainer"></ul>
-
-            <!-- List of items — each is a grid row -->
             <ul class="menu-list">
               <li class="menu-item">
                 <div class="item-left">
@@ -84,106 +77,113 @@
                   <p class="item-desc">Intense shot · Single shot</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">$2.50</p>
+                  <p class="item-price" aria-label="Price: 5200 MMK">5200 MMK</p>
                 </div>
               </li>
-
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Latte</strong></p>
-                  <p class="item-desc">Steamed milk &amp; espresso</p>
+                  <p class="item-desc">Steamed milk & espresso</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">$3.50</p>
+                  <p class="item-price" aria-label="Price: 7300 MMK">7300 MMK</p>
                 </div>
               </li>
-
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Pour Over</strong></p>
-                  <p class="item-desc">Single origin</p>
+                  <p class="item-desc">Single origin, freshly brewed</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">$4.00</p>
+                  <p class="item-price" aria-label="Price: 8400 MMK">8400 MMK</p>
                 </div>
               </li>
             </ul>
           </li>
 
+          <!-- Tea -->
           <li class="menu-card">
             <h3>Tea</h3>
             <ul class="menu-list">
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Matcha Latte</strong></p>
-                  <p class="item-desc">Ceremonial grade</p>
+                  <p class="item-desc">Ceremonial grade, velvety texture</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">$3.75</p>
+                  <p class="item-price" aria-label="Price: 7800 MMK">7800 MMK</p>
                 </div>
               </li>
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Chai</strong></p>
-                  <p class="item-desc">Spiced &amp; milky</p>
+                  <p class="item-desc">Spiced & milky, aromatic</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">$3.25</p>
+                  <p class="item-price" aria-label="Price: 6800 MMK">6800 MMK</p>
                 </div>
               </li>
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Herbal</strong></p>
-                  <p class="item-desc">Seasonal blend</p>
+                  <p class="item-desc">Seasonal blend, caffeine-free</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">$2.75</p>
+                  <p class="item-price" aria-label="Price: 5800 MMK">5800 MMK</p>
                 </div>
               </li>
             </ul>
           </li>
 
+          <!-- Pastries -->
           <li class="menu-card">
             <h3>Pastries</h3>
             <ul class="menu-list">
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Butter Croissant</strong></p>
-                  <p class="item-desc">Flaky &amp; warm</p>
+                  <p class="item-desc">Flaky & warm, freshly baked</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">3000MMK</p>
+                  <p class="item-price" aria-label="Price: 3000 MMK">3000 MMK</p>
                 </div>
               </li>
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Blueberry Muffin</strong></p>
-                  <p class="item-desc">House-made</p>
+                  <p class="item-desc">House-made, bursting with berries</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">4500MMK</p>
+                  <p class="item-price" aria-label="Price: 4500 MMK">4500 MMK</p>
                 </div>
               </li>
               <li class="menu-item">
                 <div class="item-left">
                   <p class="item-title"><strong>Almond Croissant</strong></p>
-                  <p class="item-desc">Filled with almond cream</p>
+                  <p class="item-desc">Filled with almond cream, lightly toasted</p>
                 </div>
                 <div class="item-right">
-                  <p class="item-price">6000MMK</p>
+                  <p class="item-price" aria-label="Price: 6000 MMK">6000 MMK</p>
                 </div>
               </li>
             </ul>
           </li>
         </ul>
 
-        <a type="button" href="menu.html">Explore More Menus</a>
+        <!-- Menu button -->
+        <a href="menu.html" class="btn btn-primary">Explore More Menus</a>
       </div>
     </section>
+
 
     <!-- ABOUT -->
     <section id="about" class="section about" aria-labelledby="aboutTitle">
       <div class="container about-inner">
+        <div class="about-image">
+          <img src="../assets/About-illustration.webp" alt="Interior of CaféCraft with people enjoying coffee"
+            loading="lazy" width="600" height="450">
+        </div>
+
         <div>
           <h2 id="aboutTitle" class="section-title">About CaféCraft</h2>
           <p>Founded on a love for craft roasting and community. <br> We source ethically and brew deliberately.</p>
@@ -192,11 +192,6 @@
             <li><strong>Phone:</strong> +95 9 123 456 789</li>
             <li><strong>Address:</strong> 123 Bean Lane, Yangon (placeholder)</li>
           </ul>
-        </div>
-
-        <div class="about-image">
-          <img src="assets/about-photo.svg" alt="Interior of CaféCraft with people enjoying coffee" loading="lazy"
-            width="420" height="320">
         </div>
       </div>
     </section>
