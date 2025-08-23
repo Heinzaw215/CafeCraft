@@ -1,48 +1,55 @@
 [
   {
-    "image": "https://example.com/images/espresso.jpg",
+    "image": "../assets/Espresso.webp",
     "name": "Espresso",
     "description": "Intense shot",
     "price": "3000MMK",
     "category": "Coffee"
   },
   {
+    "image": "../assets/Latte.webp",
     "name": "Latte",
     "description": "Smooth and creamy",
     "price": "3500MMK",
     "category": "Coffee"
   },
   {
+    "image": "../assets/Cappuccino.webp",
     "name": "Cappuccino",
     "description": "Rich and frothy",
     "price": "4000MMK",
     "category": "Coffee"
   },
   {
+    "image": "../assets/Mocha.webp",
     "name": "Mocha",
     "description": "Chocolatey delight",
     "price": "4500MMK",
     "category": "Coffee"
   },
   {
+    "image": "../assets/Americano.webp",
     "name": "Americano",
     "description": "Bold and strong",
     "price": "3000MMK",
     "category": "Coffee"
   },
   {
+    "image": "../assets/Macchiato.webp",
     "name": "Macchiato",
     "description": "Espresso with a touch of foam",
     "price": "3500MMK",
     "category": "Coffee"
   },
   {
+    "image": "../assets/FlatWhite.webp",
     "name": "Flat White",
-    "description": "Velvety microfoam",
+    "description": "Velvety micro milk foam",
     "price": "4000MMK",
     "category": "Coffee"
   },
   {
+    "image": "../assets/Affogato.webp",
     "name": "Affogato",
     "description": "Ice cream with espresso",
     "price": "5000MMK",
@@ -52,30 +59,36 @@
     "name": "Green Tea",
     "description": "Refreshing and calming",
     "price": "2000MMK",
+    "image": "../assets/GreenTea.webp",
     "category": "Tea"
   },
   {
+
     "name": "Croissant",
     "description": "Buttery pastry",
     "price": "2500MMK",
+    "image": "../assets/Croissant.webp",
     "category": "Pastry"
   },
   {
     "name": "Chocolate Cake",
     "description": "Rich and moist",
     "price": "3000MMK",
+    "image": "../assets/ChocolateCake.webp",
     "category": "Pastry"
   },
   {
     "name": "Cheese Danish",
     "description": "Creamy cheese filling",
     "price": "2800MMK",
+    "image": "../assets/CheeseDanish.webp",
     "category": "Pastry"
   },
   {
     "name": "Fruit Tart",
     "description": "Fresh seasonal fruits",
     "price": "3500MMK",
+    "image": "../assets/FruitTart.webp",
     "category": "Pastry"
   }
 ]
