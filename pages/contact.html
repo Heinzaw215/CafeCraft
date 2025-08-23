@@ -23,8 +23,9 @@
     <!-- Contact Info Section -->
     <section class="contact-info section-padding">
       <div class="container">
-        <h1>Contact Us</h1>
-        <p>Have questions, suggestions, or just want to say hello? We’d love to hear from you! Reach out via phone,
+        <h1 class="contact-title">Contact Us</h1>
+        <p class="contact-subtitle">Have questions, suggestions, or just want to say hello? We’d love to hear from
+          you!<br> Reach out via phone,
           email, or visit our cozy café in person.</p>
         <div class="contact-cards">
           <div class="contact-card">
@@ -34,7 +35,7 @@
           </div>
           <div class="contact-card">
             <h3>Call Us</h3>
-            <p>+1 (234) 567-8901</p>
+            <p>+95 (9) 123456789</p>
             <p>Available during café hours</p>
           </div>
           <div class="contact-card">
@@ -49,8 +50,8 @@
     <!-- Contact Form Section -->
     <section class="contact-form-section section-padding bg-light">
       <div class="container">
-        <h2>Send Us a Message</h2>
-        <form action="submit_contact.php" method="post" class="contact-form">
+        <h2 class="contact-form-heading">Send Us a Message</h2>
+        <form id="contact-form" class="contact-form">
           <label for="name">Name*</label>
           <input type="text" id="name" name="name" required placeholder="Your Name">
 
@@ -61,21 +62,24 @@
           <input type="text" id="subject" name="subject" required placeholder="Message Subject">
 
           <label for="message">Message*</label>
-          <textarea id="message" name="message" rows="5" required
-            placeholder="Write your message here..."></textarea>
+          <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
 
           <button type="submit" class="btn btn-cta">Send Message</button>
         </form>
+
+        <!-- Toast container -->
+        <div id="toast" class="toast">Message sent successfully!</div>
       </div>
     </section>
 
     <!-- Map / Location Section -->
     <section class="map-section section-padding">
       <div class="container">
-        <h2>Find Us</h2>
-        <iframe
+        <h2>Find Us Here</h2>
+        <iframe class="map-iframe"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.1234567890!2d-122.123456!3d37.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e1234567890%3A0x1234567890abcdef!2sCaféCraft!5e0!3m2!1sen!2sus!4v1234567890"
-          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          title="CaféCraft Location" allowfullscreen>
+        </iframe>
       </div>
     </section>
   </main>

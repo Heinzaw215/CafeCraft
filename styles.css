@@ -566,12 +566,40 @@ body {
    END MICROINTERACTIONS
    ----------------------------- */
 
+.section-heading {
+  font-size: 2rem;
+  /* Bigger, modern size */
+  font-weight: 600;
+  /* Semi-bold, not too heavy */
+  text-align: center;
+  /* Centered for sections */
+  margin-bottom: 1rem;
+  /* Space under heading */
+  color: #333;
+  /* Neutral text */
+  position: relative;
+  /* For decorative line */
+}
+
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #c59d5f;
+  /* Accent color (e.g., coffee brown/gold) */
+  margin: 0.5rem auto 0;
+  /* Centered underline */
+  border-radius: 2px;
+}
+
+
 .menu-card {
   background: #fff;
   padding: 1rem;
   border-radius: .6rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-  border: 1px solid rgba(0,0,0,.04);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+  border: 1px solid rgba(0, 0, 0, .04);
   max-width: 520px;
 }
 
@@ -579,15 +607,16 @@ body {
 .item-grid,
 .menu-item {
   display: grid;
-  grid-template-columns: 1fr auto; /* left = content, right = price */
+  grid-template-columns: 1fr auto;
+  /* left = content, right = price */
   gap: 0.75rem;
   align-items: center;
   padding: 0.45rem 0;
 }
 
 /* Slight visual separation between list items */
-.menu-item + .menu-item {
-  border-top: 1px dashed rgba(0,0,0,.06);
+.menu-item+.menu-item {
+  border-top: 1px dashed rgba(0, 0, 0, .06);
   margin-top: 0.45rem;
   padding-top: 0.6rem;
 }
@@ -602,13 +631,15 @@ body {
 .item-left .item-desc {
   margin: 0.25rem 0 0;
   font-size: 0.88rem;
-  color: #6b6b6b; /* muted */
+  color: #6b6b6b;
+  /* muted */
 }
 
 /* Right column (price) styling */
 .item-right {
   text-align: right;
-  white-space: nowrap; /* prevents price wrapping */
+  white-space: nowrap;
+  /* prevents price wrapping */
 }
 
 .item-price {
@@ -619,15 +650,48 @@ body {
 
 /* Spacing for the main featured block */
 .featured {
-  border-bottom: 1px solid rgba(0,0,0,.04);
+  border-bottom: 1px solid rgba(0, 0, 0, .04);
   padding-bottom: 0.9rem;
   margin-bottom: 0.6rem;
 }
 
 /* Optional: reduce gap on small screens */
 @media (max-width: 420px) {
-  .menu-card { padding: .8rem; }
+  .menu-card {
+    padding: .8rem;
+  }
+
   .item-grid,
-  .menu-item { gap: .5rem; }
-  .item-price { font-size: 0.95rem; }
+  .menu-item {
+    gap: .5rem;
+  }
+
+  .item-price {
+    font-size: 0.95rem;
+  }
+}
+
+.primary-nav .nav-list a.active,
+.drawer-nav .drawer-link.active {
+  color: var(--accent);       /* highlight with your caramel color */
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75%;
+  max-width: 300px;
+  height: 100%;
+  background: var(--cream);
+  box-shadow: -2px 0 6px rgba(0,0,0,.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
 }

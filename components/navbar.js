@@ -50,7 +50,7 @@ class CafeNavbar extends HTMLElement {
 
     // ✅ Highlight current page
     const currentPage = window.location.pathname.split("/").pop();
-    this.querySelectorAll("nav a, .drawer-nav a").forEach(link => {
+    this.querySelectorAll("nav a, .drawer-nav a").forEach((link) => {
       if (link.getAttribute("href") === currentPage) {
         link.classList.add("active");
       }
