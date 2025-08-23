@@ -1,6 +1,7 @@
 // Render Footer component
 class CafeFooter extends HTMLElement {
   connectedCallback() {
+    const year = new Date().getFullYear();
     this.innerHTML = `
       <footer class="site-footer">
     <div class="container footer-inner">
@@ -9,7 +10,7 @@ class CafeFooter extends HTMLElement {
           <img src="assets/logo-illustration.svg" alt="footer logo" width="30" height="30" loading="lazy">
           <span>CaféCraft</span>
         </div>
-        <p class="muted small">Preserved © <span id="year"></span>
+        <p class="muted small">Preserved © ${year}</span>
           CaféCraft- Brew Coffee with love <br>
           Address: 45 Artisan Lane, Downtown Yangon <br>
           Phone no: +95 9 876 543 210 <br>

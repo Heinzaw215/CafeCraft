@@ -19,9 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactStatus = document.getElementById("contactStatus");
   const toast = document.getElementById("toast");
 
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
   // Helpers: drawer open/close
   function openDrawer() {
     if (!mobileDrawer) return;

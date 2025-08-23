@@ -63,6 +63,55 @@
     "category": "Tea"
   },
   {
+    "name": "Black Tea",
+    "description": "Strong and robust",
+    "price": "2500MMK",
+    "image": "../assets/BlackTea.webp",
+    "category": "Tea"
+  },
+  {
+    "name": "Chai Latte",
+    "description": "Spiced and creamy",
+    "price": "3000MMK",
+    "image": "../assets/ChaiLatte.webp",
+    "category": "Tea"
+  },
+  {
+    "name": "Herbal Tea",
+    "description": "Caffeine-free blend",
+    "price": "2200MMK",
+    "image": "../assets/HerbalTea.webp",
+    "category": "Tea"
+  },
+  {
+    "name": "Oolong Tea",
+    "description": "Floral and fragrant",
+    "price": "2800MMK",
+    "image": "../assets/OolongTea.webp",
+    "category": "Tea"
+  },
+  {
+    "name": "Earl Grey",
+    "description": "Bergamot-infused black tea",
+    "price": "2600MMK",
+    "image": "../assets/EarlGrey.webp",
+    "category": "Tea"
+  },
+  {
+    "name": "Matcha Latte",
+    "description": "Vibrant green tea latte",
+    "price": "3500MMK",
+    "image": "../assets/MatchaLatte.webp",
+    "category": "Tea"
+  },
+  {
+    "name": "Lemon Ginger Tea",
+    "description": "Zesty and warming",
+    "price": "2400MMK",
+    "image": "../assets/LemonGingerTea.webp",
+    "category": "Tea"
+  },
+  {
 
     "name": "Croissant",
     "description": "Buttery pastry",
