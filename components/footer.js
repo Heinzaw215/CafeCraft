@@ -10,18 +10,18 @@ class CafeFooter extends HTMLElement {
           <img src="../assets/favicon.svg" alt="footer logo" width="30" height="30" loading="lazy">
           <span>CaféCraft</span>
         </div>
-        <p class="muted small">Preserved © ${year}</span>
+        <p class="small">Preserved © ${year}</span>
           CaféCraft- Brew Coffee with love <br>
           Address: 45 Artisan Lane, Downtown Yangon <br>
           Phone no: +95 9 876 543 210 <br>
           Email: info@cafecraft.com.mm
         </p>
         <p>
-          Created by <a href="#" class="muted">Heinz.Zaw</a> with love. <br>
+          Created by <a href="#">CafeCraft Team</a> with love. <br>
         </p>
       </div>
 
-      <div class="contact-card muted" aria-hidden="false">
+      <div class="footer-card" aria-hidden="false">
         <h3>Visit Us</h3>
         <p>We're always happy to see you. <br> Come by for a cup.</p>
         <ul>

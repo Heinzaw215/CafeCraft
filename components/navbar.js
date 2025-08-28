@@ -21,30 +21,8 @@ class CafeNavbar extends HTMLElement {
 
           <div class="header-actions">
             <button type="button" class="btn btn-cta" id="orderBtnTop">Order</button>
-            <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" 
-              aria-controls="mobileDrawer" aria-expanded="false">
-              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="6" width="18" height="2" rx="1" fill="currentColor" />
-                <rect x="3" y="11" width="18" height="2" rx="1" fill="currentColor" />
-                <rect x="3" y="16" width="18" height="2" rx="1" fill="currentColor" />
-              </svg>
-            </button>
           </div>
         </div>
-
-        <aside class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" 
-          aria-hidden="true" aria-label="Mobile menu" inert>
-          <div class="drawer-inner">
-            <button type="button" class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
-            <ul class="drawer-nav">
-              <li><a href="index.html" class="drawer-link">Home</a></li>
-              <li><a href="menu.html" class="drawer-link">Menu</a></li>
-              <li><a href="about.html" class="drawer-link">About</a></li>
-              <li><a href="contact.html" class="drawer-link">Contact</a></li>
-            </ul>
-            <button type="button" class="btn btn-cta" id="orderBtnDrawer">Order</button>
-          </div>
-        </aside>
       </header>
 
       <!-- Order Modal (site-wide) -->
@@ -63,11 +41,16 @@ class CafeNavbar extends HTMLElement {
             <label for="o-item">Item</label>
             <select id="o-item" name="item" required>
               <option value="">Select an item</option>
-              <option>Espresso</option>
-              <option>Latte</option>
-              <option>Pour Over</option>
-              <option>Matcha Latte</option>
-              <option>Butter Croissant</option>
+              ${fetch("../context/menu.json")
+                .then((response) => response.json())
+                .then((menu) =>
+                  menu
+                    .map(
+                      (item) =>
+                        `<option value="${item.name}">${item.name}</option>`
+                    )
+                    .join("")
+                )}
             </select>
 
             <label for="o-qty">Quantity</label>

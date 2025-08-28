@@ -1,7 +1,13 @@
-/* styles.css — CaféCraft
-  Mobile-first responsive layout with accessible components
-  Theme variables (change here to re-theme)
-*/
+/* ==========================================================================
+   styles.css — CaféCraft (Regrouped + commented)
+   - Mobile-first, accessible, theming via :root
+   - Sections grouped: VARIABLES / RESET / LAYOUT / NAV / HERO / SECTIONS
+     / MENU / CARDS / FORMS / MODAL / FOOTER / MICROINTERACTIONS / UTILITIES
+   ========================================================================== */
+
+/* ==========================================================================
+   THEME VARIABLES
+   ========================================================================== */
 :root {
   --deep: #3b2f2f;
   /* deep coffee */
@@ -18,29 +24,17 @@
   --transition: 240ms ease;
 }
 
-/* Keep focus outlines for accessibility */
-:focus {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* Base */
+/* ==========================================================================
+   RESET / BASE
+   - box-sizing, font family, base colors, focus outline (accessible)
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-h3 {
-  text-decoration: underline var(--accent);
-}
-
 html,
 body {
-  height: 100%
+  height: 100%;
 }
 
 body {
@@ -50,17 +44,40 @@ body {
   background: var(--bg);
   line-height: 1.45;
   scroll-behavior: smooth;
-  /* smooth internal scrolling */
+}
+
+/* Accessible focus style (kept slightly warm to match aesthetic) */
+:focus {
+  outline: 3px solid rgba(217, 161, 90, 0.22);
+  outline-offset: 2px;
+}
+
+/* Basic elements */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+li {
+  list-style: none;
 }
 
 /* Container helper */
 .container {
   width: clamp(92%, 1000px, var(--max-width));
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.75rem;
 }
 
-/* Header */
+/* ==========================================================================
+   HEADER / BRAND / NAV
+   - sticky header, brand, nav list, hamburger and mobile drawer
+   ========================================================================== */
 .site-header {
   background: linear-gradient(180deg, rgba(59, 67, 67, 0.08), transparent);
   position: sticky;
@@ -69,12 +86,17 @@ body {
   border-bottom: 1px solid rgba(59, 47, 47, 0.06);
 }
 
+/* .nav-list li {
+  background-color: #d45e15;
+  color: #f7f2ea;
+} */
+
 .header-inner {
   display: flex;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0
+  padding: 0.75rem 0;
 }
 
 .brand {
@@ -88,15 +110,10 @@ body {
 .brand-text {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 1.15rem
+  font-size: 1.15rem;
 }
 
-.brand-small {
-  justify-content: center;
-  align-items: center;
-}
-
-/* Nav (hidden on very small screens) */
+/* Primary nav hidden on smallest screens */
 .primary-nav {
   display: none;
 }
@@ -106,37 +123,17 @@ body {
   gap: 2rem;
   list-style: none;
   padding: 0;
-  margin: 0
+  margin: 0;
 }
 
+/* Header actions */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem
+  gap: 0.5rem;
 }
 
-/* Buttons */
-.btn {
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  border: 0;
-  background: transparent;
-  cursor: pointer
-}
-
-.btn-cta {
-  background: var(--deep);
-  color: var(--cream)
-}
-
-.btn-outline {
-  border: 1px solid var(--light);
-  background: transparent;
-  color: var(--text)
-}
-
-/* Hamburger */
+/* Hamburger (mobile) */
 .hamburger {
   background: transparent;
   border: 0;
@@ -147,109 +144,50 @@ body {
   z-index: 100;
 }
 
-/* Drawer */
-.mobile-drawer {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-end;
-  pointer-events: none
-}
-
-.mobile-drawer[aria-hidden="true"] {
-  visibility: hidden;
-  opacity: 0
-}
-
-.mobile-drawer[aria-hidden="false"] {
-  pointer-events: auto;
-  visibility: visible;
-  opacity: 1
-}
-
-.drawer-inner {
-  width: 280px;
-  background: linear-gradient(180deg, var(--cream), #fff);
-  box-shadow: -8px 0 30px rgba(43, 37, 37, 0.12);
-  padding: 1.25rem;
-  transform: translateX(8%);
-  transition: transform var(--transition)
-}
-
-.mobile-drawer[aria-hidden="false"] .drawer-inner {
-  transform: translateX(0)
-}
-
-.drawer-close {
-  border: 0;
-  background: transparent;
-  font-size: 1.6rem
-}
-
-/* Hero */
+/* ==========================================================================
+   HERO / INTRO
+   ========================================================================== */
 .hero {
-  padding: 1.25rem 0 2rem
+  padding: 1.25rem 0 2rem;
 }
 
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  align-items: center
+  align-items: center;
 }
 
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   margin: 0;
-  color: var(--deep)
+  color: var(--deep);
 }
 
 .lead {
-  color: #5a504f
+  color: #5a504f;
 }
 
 .hero-image img {
   width: 100%;
   max-width: 520px;
   border-radius: 12px;
-  display: block
+  display: block;
 }
 
-/* Short links & testimonials */
 .short-links {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
   padding: 0;
-  margin-top: 0.75rem;
-  list-style: none
 }
 
-.short-links a {
-  text-decoration: none;
-  color: var(--light)
-}
-
-.testimonials {
-  margin-top: 1.25rem
-}
-
-.testi-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem
-}
-
-.testi {
-  background: linear-gradient(180deg, rgba(217, 161, 90, 0.06), transparent);
-  padding: 0.9rem;
-  border-radius: 10px;
-}
-
-/* Sections */
+/* ==========================================================================
+   SECTIONS / TYPOGRAPHY
+   ========================================================================== */
 .section {
-  padding: 1.25rem 0
+  padding: 1.25rem 0;
 }
 
 .section-title {
@@ -263,362 +201,21 @@ body {
 }
 
 .section-title:hover {
-  text-decoration: underline var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 .muted {
-  color: #6d6666
+  color: #6d6666;
 }
 
-/* Menu / About / Contact grid styles */
-.menu-grid {
-  display: grid;
-  gap: 1rem
-}
-
-.menu-card {
-  list-style-type: none;
-  background: #fff;
-  padding: 0.9rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(43, 37, 37, 0.04)
-}
-
-/* Button base style */
-.btn {
-  text-align: center;
-  display: inline-block;
-  padding: 0.65rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-}
-
-/* Primary button for CaféCraft aesthetic */
-.btn-primary {
-  background: linear-gradient(135deg, #a1754f, #d9b382);
-  /* warm coffee tones */
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  letter-spacing: 0.5px;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #d9b382, #a1754f);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-.btn-primary:focus {
-  outline: 2px solid #d9b382;
-  outline-offset: 3px;
-}
-
-
-.fx {
-  display: flex;
-}
-
-.about-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  align-items: center
-}
-
-.about-image img {
-  width: 100%;
-  border-radius: 10px
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem
-}
-
-.form input,
-.form select,
-.form textarea {
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #ddd
-}
-
-.form-status {
-  margin-top: 0.5rem;
-  color: var(--deep)
-}
-
-/* Footer */
-.site-footer {
-  border-top: 1px solid rgba(59, 47, 47, 0.06);
-  padding: 1.25rem 0;
-  margin-top: 1rem
-}
-
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem
-}
-
-.footer-links {
-  display: flex;
-  gap: 0.75rem;
-  list-style: none;
-  padding: 0;
-  margin: 0
-}
-
-/* Modal */
-.modal {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.35);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity var(--transition)
-}
-
-.modal[aria-hidden="false"] {
-  visibility: visible;
-  opacity: 1
-}
-
-.modal-panel {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 12px;
-  width: clamp(300px, 90%, 540px);
-  box-shadow: 0 10px 40px rgba(43, 37, 37, 0.15);
-  position: relative
-}
-
-.modal-close {
-  position: absolute;
-  right: 0.5rem;
-  top: 0.25rem;
-  border: 0;
-  background: transparent;
-  font-size: 1.4rem
-}
-
-/* Responsive breakpoints: 375px (mobile baseline), 768px (tablet), 1100px (desktop) */
-@media(min-width: 600px) {
-  .primary-nav {
-    display: block
-  }
-
-  .hamburger {
-    display: none
-  }
-
-  .nav-list {
-    display: flex
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr 480px
-  }
-
-  .testi-grid {
-    grid-template-columns: repeat(3, 1fr)
-  }
-
-  .menu-grid {
-    grid-template-columns: repeat(3, 1fr)
-  }
-
-  .about-inner {
-    grid-template-columns: 1fr 420px
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr 320px
-  }
-}
-
-@media(min-width: 1100px) {
-  .hero-title {
-    font-size: 2.25rem
-  }
-}
-
-/* Tiny entrance animation */
-.fade-up {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: fadeUp 600ms var(--transition) forwards
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: none
-  }
-}
-
-/* -----------------------------
-   MICROINTERACTIONS (buttons & links)
-   ----------------------------- */
-
-/* Make interactive elements visually responsive */
-.btn,
-.nav-list a,
-.drawer-nav a,
-.footer-links a {
-  position: relative;
-  /* needed for ripple */
-  overflow: hidden;
-  /* clip ripple */
-  transition: transform 180ms var(--transition), box-shadow 180ms var(--transition), color 180ms var(--transition);
-  will-change: transform;
-}
-
-/* Hover / focus lift */
-.btn:hover,
-.nav-list a:hover,
-.drawer-nav a:hover,
-.footer-links a:hover {
-  transform: translateY(-3px);
-  text-decoration: none;
-}
-
-/* Pressed/active state: subtle push */
-.btn:active,
-.nav-list a:active,
-.drawer-nav a:active,
-.footer-links a:active {
-  transform: translateY(0) scale(0.995);
-}
-
-/* Preserve clear keyboard focus (already kept, but make it warmer) */
-.btn:focus,
-.nav-list a:focus,
-.drawer-nav a:focus,
-.footer-links a:focus {
-  outline: 3px solid rgba(217, 161, 90, 0.22);
-  outline-offset: 3px;
-}
-
-/* Animated underline for plain links (nice touch) */
-.nav-list a,
-.footer-links a,
-.short-links a {
-  position: relative;
-  padding-bottom: 2px;
-}
-
-.nav-list a::after,
-.footer-links a::after,
-.short-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 220ms var(--transition);
-  opacity: 0.95;
-}
-
-.nav-list a:hover::after,
-.footer-links a:hover::after,
-.short-links a:hover::after,
-.nav-list a:focus::after,
-.footer-links a:focus::after {
-  transform: scaleX(1);
-}
-
-/* Ripple element used by JS */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  opacity: 0.45;
-  pointer-events: none;
-  background: rgba(217, 161, 90, 0.9);
-  /* caramel-ish */
-  animation: ripple 600ms cubic-bezier(.2, .8, .2, 1);
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(2.8);
-    opacity: 0;
-  }
-}
-
-/* Make sure touch devices see slightly larger interaction */
-@media (hover: none) {
-
-  .btn,
-  .nav-list a,
-  .drawer-nav a,
-  .footer-links a {
-    transition: none;
-  }
-}
-
-/* Respect reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-
-  .btn,
-  .nav-list a,
-  .drawer-nav a,
-  .footer-links a,
-  .ripple,
-  .nav-list a::after {
-    transition: none !important;
-    animation: none !important;
-  }
-
-  .btn:hover,
-  .nav-list a:hover {
-    transform: none !important;
-  }
-}
-
-/* -----------------------------
-   END MICROINTERACTIONS
-   ----------------------------- */
-
+/* Small decorative section heading utility */
 .section-heading {
   font-size: 2rem;
-  /* Bigger, modern size */
   font-weight: 600;
-  /* Semi-bold, not too heavy */
   text-align: center;
-  /* Centered for sections */
   margin-bottom: 1rem;
-  /* Space under heading */
   color: #333;
-  /* Neutral text */
   position: relative;
-  /* For decorative line */
 }
 
 .section-heading::after {
@@ -626,42 +223,71 @@ body {
   display: block;
   width: 60px;
   height: 3px;
-  background: #c59d5f;
-  /* Accent color (e.g., coffee brown/gold) */
+  background: var(--accent);
   margin: 0.5rem auto 0;
-  /* Centered underline */
   border-radius: 2px;
 }
 
+/* ==========================================================================
+   MENU GRID & CARDS
+   - unified grid, responsive breakpoints, menu cards and list items
+   ========================================================================== */
+/* Grid that contains cards (responsive: 1 -> 2 -> 3 -> 4) */
+.menu-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+  margin: 0 auto;
+  padding: 0;
+}
 
+/* Breakpoints */
+@media (min-width: 600px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card wrapper for category or featured block */
 .menu-card {
   background: #fff;
   padding: 1rem;
   border-radius: .6rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
-  border: 1px solid rgba(0, 0, 0, .04);
-  max-width: 520px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  max-width: 100%;
 }
 
-/* Grid for featured item and each row */
+/* Each item row inside card - left is content, right is price */
 .item-grid,
 .menu-item {
   display: grid;
-  grid-template-columns: 1fr auto;
-  /* left = content, right = price */
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.75rem;
   align-items: center;
   padding: 0.45rem 0;
 }
 
-/* Slight visual separation between list items */
+/* Visual separation for list items */
 .menu-item+.menu-item {
-  border-top: 1px dashed rgba(0, 0, 0, .06);
+  border-top: 1px dashed rgba(0, 0, 0, 0.06);
   margin-top: 0.45rem;
   padding-top: 0.6rem;
 }
 
-/* Left column styling */
+/* Left column content */
 .item-left .item-title {
   margin: 0;
   font-size: 1rem;
@@ -672,38 +298,301 @@ body {
   margin: 0.25rem 0 0;
   font-size: 0.88rem;
   color: #6b6b6b;
-  /* muted */
 }
 
-/* Right column (price) styling */
+/* Price column */
 .item-right {
   text-align: right;
   white-space: nowrap;
-  /* prevents price wrapping */
 }
 
 .item-price {
   margin: 0;
   font-weight: 700;
   font-size: 0.98rem;
+  color: var(--deep);
 }
 
-/* Spacing for the main featured block */
+/* Featured block spacing */
 .featured {
-  border-bottom: 1px solid rgba(0, 0, 0, .04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   padding-bottom: 0.9rem;
   margin-bottom: 0.6rem;
 }
 
-/* Optional: reduce gap on small screens */
+/* ==========================================================================
+   BUTTONS / FORMS
+   - single .btn base with variants
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: transform 180ms var(--transition), box-shadow 180ms var(--transition), color 180ms var(--transition);
+  position: relative;
+  /* for ripple or other effects */
+  overflow: hidden;
+}
+
+/* CTA / primary / outline variants */
+.btn-cta {
+  background: var(--deep);
+  color: var(--cream);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #a1754f, #d9b382);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline {
+  border: 1px solid var(--light);
+  background: transparent;
+  color: var(--text);
+}
+
+/* Hover / active / focus micro-interactions */
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.995);
+}
+
+.btn:focus {
+  outline: 3px solid rgba(217, 161, 90, 0.22);
+  outline-offset: 3px;
+}
+
+/* Form basics */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font: inherit;
+}
+
+.form-status {
+  margin-top: 0.5rem;
+  color: var(--deep);
+}
+
+/* ==========================================================================
+   MODAL (unified)
+   - overlay, panel, animation
+   - show with .modal.open OR aria-hidden="false"
+   ========================================================================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  /* pointer-events: none; */
+}
+
+/* visible state */
+.modal.open,
+.modal[aria-hidden="false"] {
+  display: flex;
+  pointer-events: auto;
+}
+
+/* dim + optional blur backdrop */
+.modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 12, 10, 0.54);
+  -webkit-backdrop-filter: blur(6px) saturate(1.05);
+  backdrop-filter: blur(6px) saturate(1.05);
+  z-index: 1000;   /* 👈 explicitly lower than .modal-panel */
+  pointer-events: auto; /* allow clicks on backdrop if you want to close modal */
+}
+
+/* panel container */
+.modal-panel {
+  position: relative;
+  z-index: 1010;
+  width: min(760px, 96%);
+  max-height: 86vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  background: var(--cream);
+  box-shadow: 0 18px 50px rgba(11, 9, 8, 0.38);
+  padding: 1.25rem;
+  transform: translateY(8px) scale(.995);
+  opacity: 0;
+  transition: transform 220ms cubic-bezier(.2, .9, .2, 1), opacity 220ms ease;
+}
+
+.modal.open,
+.modal[aria-hidden="false"] {
+  pointer-events: auto;
+}
+
+/* animate in when open */
+.modal.open .modal-panel,
+.modal[aria-hidden="false"] .modal-panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* close button inside panel */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: 0;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.modal.open::before,
+.modal[aria-hidden="false"]::before { opacity:1; }
+.modal-panel { pointer-events:auto; z-index:1110; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid rgba(59, 47, 47, 0.06);
+  padding: 1.25rem 0 0 0;
+  /* margin-top: 1rem; */
+}
+
+.brand-small {
+  display: flex;
+  align-items: center;
+  
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  background-color: #d45e15;
+  color: #f7f2ea;
+  padding: 0.5rem 0.5rem;
+  justify-content: center;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-card {
+  background-color: var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.footer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.footer-card h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--deep);
+}
+
+.footer-card p,
+.footer-card a {
+  text-align: center;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.footer-card a {
+  font-weight: 600;
+  color: #141a1b;
+}
+
+/* ==========================================================================
+   MICROINTERACTIONS / RIPPLE (optional)
+   - Ripple CSS present but JS must create .ripple elements.
+   - If you removed ripple JS, this block can be safely ignored.
+   ========================================================================== */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0.45;
+  pointer-events: none;
+  background: rgba(217, 161, 90, 0.9);
+  animation: ripple 600ms cubic-bezier(.2, .8, .2, 1);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   UTILITIES / RESPONSIVE TWEAKS
+   ========================================================================== */
+@media (min-width: 600px) {
+  .primary-nav {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr 480px;
+  }
+
+  .testi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+}
+
+/* small screens adjustments */
 @media (max-width: 420px) {
   .menu-card {
-    padding: .8rem;
+    padding: 0.8rem;
   }
 
   .item-grid,
   .menu-item {
-    gap: .5rem;
+    gap: 0.5rem;
   }
 
   .item-price {
@@ -711,28 +600,24 @@ body {
   }
 }
 
-.primary-nav .nav-list a.active,
-.drawer-nav .drawer-link.active {
-  color: var(--accent);
-  /* highlight with your caramel color */
-  font-weight: 600;
-  border-bottom: 2px solid var(--accent);
+/* tiny entrance animation (utility) */
+.fade-up {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 600ms var(--transition) forwards;
 }
 
-.mobile-drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 75%;
-  max-width: 300px;
-  height: 100%;
-  background: var(--cream);
-  box-shadow: -2px 0 6px rgba(0, 0, 0, .15);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 1000;
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.mobile-drawer.open {
-  transform: translateX(0);
+/* small helper to center last row if fewer items than columns (optional)
+   Use on the grid container when you want centered last row items:
+   .menu-grid.center-last { justify-items: center; }
+*/
+.menu-grid.center-last {
+  justify-items: center;
 }
