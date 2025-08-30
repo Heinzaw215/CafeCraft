@@ -45,12 +45,12 @@
 .team-member h3 {
   margin: 0.5rem 0;
   font-size: 1.2rem;
-  color: var(--deep, #3b2f2f);
+  color: var(--color-deep, #3b2f2f);
 }
 
 .team-member p {
   font-size: 0.95rem;
-  color: var(--text-muted, #666);
+  color: var(--color-text-muted, #666);
 }
 
 @media (max-width: 600px) {

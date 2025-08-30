@@ -26,10 +26,14 @@ class CafeNavbar extends HTMLElement {
       </header>
 
       <!-- Order Modal (site-wide) -->
-      <div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle" aria-hidden="true" inert>
+      <div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle" hidden>
         <div class="modal-panel" role="document">
-          <button type="button" class="modal-close" id="orderClose" aria-label="Close order form">&times;</button>
-          <h3 id="orderTitle">Place an Order</h3>
+        <span>
+          <button type="button" class="modal-close" id="orderClose" aria-label="Close order form">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <p id="orderTitle">Place an Order</p>
+          </span>
 
           <form id="orderForm" class="form" novalidate>
             <label for="o-name">Name</label>
@@ -41,23 +45,10 @@ class CafeNavbar extends HTMLElement {
             <label for="o-item">Item</label>
             <select id="o-item" name="item" required>
               <option value="">Select an item</option>
-              ${fetch("../context/menu.json")
-                .then((response) => response.json())
-                .then((menu) =>
-                  menu
-                    .map(
-                      (item) =>
-                        `<option value="${item.name}">${item.name}</option>`
-                    )
-                    .join("")
-                )}
             </select>
 
             <label for="o-qty">Quantity</label>
             <input id="o-qty" name="quantity" type="number" min="1" value="1" required>
-
-            <label for="o-notes">Notes (optional)</label>
-            <textarea id="o-notes" name="notes" rows="2"></textarea>
 
             <button type="submit" class="btn btn-cta">Send Order</button>
             <p id="orderStatus" class="form-status" aria-live="polite"></p>
@@ -66,13 +57,27 @@ class CafeNavbar extends HTMLElement {
       </div>
     `;
 
-    // ✅ Highlight current page
+    // Highlight current page
     const currentPage = window.location.pathname.split("/").pop();
     this.querySelectorAll("nav a, .drawer-nav a").forEach((link) => {
       if (link.getAttribute("href") === currentPage) {
         link.classList.add("active");
       }
     });
+
+    // Populate order item dropdown
+    fetch("../context/menu.json")
+      .then((res) => res.json())
+      .then((menu) => {
+        const select = this.querySelector("#o-item");
+        menu.forEach((item) => {
+          const opt = document.createElement("option");
+          opt.value = item.name;
+          opt.textContent = item.name;
+          select.appendChild(opt);
+        });
+      })
+      .catch((err) => console.error("Menu load failed:", err));
   }
 }
 
