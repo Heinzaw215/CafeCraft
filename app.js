@@ -1,6 +1,7 @@
 // app.js — unified behavior (forms, menu fetch, toast, ripple)
 // Put this AFTER navbar.js in your <script> order.
 
+import { initModal } from "./modal.js";
 document.addEventListener("DOMContentLoaded", () => {
   /* -------------------------
      ELEMENT REFERENCES
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
      FORMS: CONTACT
   ------------------------- */
   const handleFormSubmit = (form, statusEl, requiredFields, successMsg) => {
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       statusEl.textContent = "";
       for (const field of requiredFields) {
@@ -52,14 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  if (contactForm) handleFormSubmit(contactForm, contactStatus, ['[name="name"]', '[name="email"]', '[name="message"]'], "Thanks! Your message has been sent (simulated).");
+  if (contactForm)
+    handleFormSubmit(
+      contactForm,
+      contactStatus,
+      ['[name="name"]', '[name="email"]', '[name="message"]'],
+      "Thanks! Your message has been sent (simulated)."
+    );
 
   /* -------------------------
      CLOSE COMPONENTS WHEN CLICKING ANCHORS
   ------------------------- */
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", () => {
-    // No modal to close now
-  }));
+  document.querySelectorAll('a[href^="#"]').forEach((a) =>
+    a.addEventListener("click", () => {
+      // No modal to close now
+    })
+  );
 
   /* -------------------------
      LOAD MENU JSON
@@ -67,9 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuItemBoxContainer = document.querySelector("#MenuItemBoxContainer");
   if (menuItemBoxContainer) {
     fetch("context/menu.json")
-      .then(res => res.json())
-      .then(items => {
-        items.forEach(item => {
+      .then((res) => res.json())
+      .then((items) => {
+        items.forEach((item) => {
           const li = document.createElement("li");
           li.className = "menu-item";
           li.innerHTML = `
@@ -78,13 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
               <p class="item-desc">${item.description}</p>
             </div>
             <div class="item-right">
-              <p class="item-price">${Number(item.price).toLocaleString()} MMK</p>
+              <p class="item-price">${Number(
+                item.price
+              ).toLocaleString()} MMK</p>
             </div>
           `;
           menuItemBoxContainer.appendChild(li);
         });
       })
-      .catch(err => console.error("Error loading menu items:", err));
+      .catch((err) => console.error("Error loading menu items:", err));
   }
 
   /* -------------------------
@@ -92,10 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ------------------------- */
   const links = document.querySelectorAll("a, button");
 
-  links.forEach(link => {
+  links.forEach((link) => {
     link.classList.add("ripple-container");
 
-    link.addEventListener("click", e => {
+    link.addEventListener("click", (e) => {
       const ripple = document.createElement("span");
       ripple.classList.add("ripple");
 
@@ -109,6 +120,24 @@ document.addEventListener("DOMContentLoaded", () => {
       link.appendChild(ripple);
 
       ripple.addEventListener("animationend", () => ripple.remove());
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    backBtn.hidden = window.scrollY < 300;
+  });
+
+  backBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initModal({
+      modalId: "orderModal",
+      triggerSelectors: "#orderBtnTop, #orderBtnDrawer",
+      closeSelector: "orderModalClose",
+      formId: "orderForm",
+      statusId: "orderStatus",
     });
   });
 });

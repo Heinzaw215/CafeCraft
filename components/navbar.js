@@ -20,6 +20,7 @@ class CafeNavbar extends HTMLElement {
           </nav>
 
           <div class="header-actions">
+            <button id="themeToggle">🌓</button>
             <button type="button" class="btn btn-cta" id="orderBtnTop">Order</button>
           </div>
         </div>
@@ -78,8 +79,21 @@ class CafeNavbar extends HTMLElement {
         });
       })
       .catch((err) => console.error("Menu load failed:", err));
+
+      // Theme toggle button
+      const toggleBtn = document.getElementById("themeToggle");
+      const userTheme = localStorage.getItem("theme");
+      
+      if (userTheme) document.body.dataset.theme = userTheme;
+      
+      toggleBtn.addEventListener("click", () => {
+        const newTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+        document.body.dataset.theme = newTheme;
+        localStorage.setItem("theme", newTheme);
+      });
   }
 }
+
 
 // Register the component
 customElements.define("cafe-navbar", CafeNavbar);

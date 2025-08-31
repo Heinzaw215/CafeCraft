@@ -3,97 +3,97 @@
     "image": "../assets/Espresso.webp",
     "name": "Espresso",
     "description": "Intense shot",
-    "price": "3000 MMK",
+    "price": "3000",
     "category": "Coffee"
   },
   {
     "image": "../assets/Latte.webp",
     "name": "Latte",
     "description": "Smooth and creamy",
-    "price": "3500 MMK",
+    "price": "3500",
     "category": "Coffee"
   },
   {
     "image": "../assets/Cappuccino.webp",
     "name": "Cappuccino",
     "description": "Rich and frothy",
-    "price": "4000 MMK",
+    "price": "4000",
     "category": "Coffee"
   },
   {
     "image": "../assets/Mocha.webp",
     "name": "Mocha",
     "description": "Chocolatey delight",
-    "price": "4500 MMK",
+    "price": "4500",
     "category": "Coffee"
   },
   {
     "image": "../assets/Americano.webp",
     "name": "Americano",
     "description": "Bold and strong",
-    "price": "3000 MMK",
+    "price": "3000",
     "category": "Coffee"
   },
   {
     "image": "../assets/Macchiato.webp",
     "name": "Macchiato",
     "description": "Espresso with a touch of foam",
-    "price": "3500 MMK",
+    "price": "3500",
     "category": "Coffee"
   },
   {
     "image": "../assets/FlatWhite.webp",
     "name": "Flat White",
     "description": "Velvety micro milk foam",
-    "price": "4000 MMK",
+    "price": "4000",
     "category": "Coffee"
   },
   {
     "image": "../assets/Affogato.webp",
     "name": "Affogato",
     "description": "Ice cream with espresso",
-    "price": "5000 MMK",
+    "price": "5000",
     "category": "Coffee"
   },
   {
     "name": "Green Tea",
     "description": "Refreshing and calming",
-    "price": "2000 MMK",
+    "price": "2000",
     "image": "../assets/GreenTea.webp",
     "category": "Tea"
   },
   {
     "name": "Black Tea",
     "description": "Strong and robust",
-    "price": "2500 MMK",
+    "price": "2500",
     "image": "../assets/BlackTea.webp",
     "category": "Tea"
   },
   {
     "name": "Chai Latte",
     "description": "Spiced and creamy",
-    "price": "3000 MMK",
+    "price": "3000",
     "image": "../assets/ChaiLatte.webp",
     "category": "Tea"
   },
   {
     "name": "Herbal Tea",
     "description": "Caffeine-free blend",
-    "price": "2200 MMK",
+    "price": "2200",
     "image": "../assets/HerbalTea.webp",
     "category": "Tea"
   },
   {
     "name": "Oolong Tea",
     "description": "Floral and fragrant",
-    "price": "2800 MMK",
+    "price": "2800",
     "image": "../assets/OolongTea.webp",
     "category": "Tea"
   },
   {
     "name": "Earl Grey",
     "description": "Bergamot-infused black tea",
-    "price": "2600 MMK",
+    "price": "2600",
     "image": "../assets/EarlGrey.webp",
     "category": "Tea"
   },
@@ -101,28 +101,28 @@
 
     "name": "Croissant",
     "description": "Buttery pastry",
-    "price": "2500 MMK",
+    "price": "2500",
     "image": "../assets/Croissant.webp",
     "category": "Pastry"
   },
   {
     "name": "Chocolate Cake",
     "description": "Rich and moist",
-    "price": "3000 MMK",
+    "price": "3000",
     "image": "../assets/ChocolateCake.webp",
     "category": "Pastry"
   },
   {
     "name": "Cheese Danish",
     "description": "Creamy cheese filling",
-    "price": "2800 MMK",
+    "price": "2800",
     "image": "../assets/CheeseDanish.webp",
     "category": "Pastry"
   },
   {
     "name": "Fruit Tart",
     "description": "Fresh seasonal fruits",
-    "price": "3500 MMK",
+    "price": "3500",
     "image": "../assets/FruitTart.webp",
     "category": "Pastry"
   }

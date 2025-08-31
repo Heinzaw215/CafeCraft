@@ -26,33 +26,90 @@ fetch("../context/menu.json")
 function renderCategoryList(listId, items) {
   const listElement = document.getElementById(listId);
 
-  if (!listElement) return; // Exit if list element is not found
-  listElement.innerHTML = ""; // Clear existing items
+  if (!listElement) return;
+  listElement.innerHTML = "";
 
   items.forEach((item) => {
     const listItem = document.createElement("li");
     listItem.className = "menu-item";
 
     listItem.innerHTML = `
-      <div class="left-right">
-        <div class="left">
-          <img 
-            src="${item.image}" 
-            alt="${item.name}" 
-            class="item-image"
-          >
+      <!-- Top section -->
+      <div class="item-top">
+        <img src="${item.image}" alt="${item.name}" class="item-image">
+      </div>
+
+      <!-- Middle section -->
+      <div class="item-mid">
+        <div class="item-info">
           <h3 class="item-title">${item.name}</h3>
           <p class="item-desc">${item.description}</p>
         </div>
-        <div class="right">
-          <span class="price">${item.price.toLocaleString()}</span>
+        <div class="item-price">
+          <span class="price">${item.price.toLocaleString()} Ks</span>
         </div>
       </div>
-      <button class="btn add-to-cart">
-        Add to Cart
-      </button>
+
+      <!-- Bottom section -->
+<div class="item-actions">
+        <button class="btn order-now" 
+          data-id="${item.id}" 
+          data-name="${item.name}" 
+          data-price="${item.price}" 
+          data-image="${item.image}">
+          Order Now
+        </button>
+        <button class="btn add-to-cart" 
+          data-id="${item.id}" 
+          data-name="${item.name}" 
+          data-price="${item.price}" 
+          data-image="${item.image}">
+          Add to Cart
+        </button>
+      </div>
     `;
 
     listElement.appendChild(listItem);
   });
+
+  // Add-to-cart
+  document.querySelectorAll(".add-to-cart").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const product = getProductData(btn);
+      addToCart(product);
+    });
+  });
+
+  // Order-now
+  document.querySelectorAll(".order-now").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const product = getProductData(btn);
+      localStorage.setItem("checkoutItem", JSON.stringify(product));
+      window.location.href = "checkout.html";
+    });
+  });
+}
+
+function getProductData(btn) {
+  return {
+    id: btn.dataset.id,
+    name: btn.dataset.name,
+    price: parseFloat(btn.dataset.price),
+    image: btn.dataset.image,
+    quantity: 1,
+  };
+}
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existing = cart.find((item) => item.id === product.id);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${product.name} added to cart!`);
 }

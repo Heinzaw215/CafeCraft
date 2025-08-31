@@ -10,26 +10,37 @@
    ========================================================================== */
 :root {
   /* 🎨 Primary brand palette */
-  --color-accent: #d45e15;   /* orange-brown color-accent */
-  --color-deep: #3b2f2f;     /* dark brown */
-  --color-light: #a87f6f;    /* light brown */
-  --color-cream: #f7f2ea;    /* cream / background */
-  
+  --color-accent: #d45e15;
+  /* orange-brown color-accent */
+  --color-deep: #3b2f2f;
+  /* dark brown */
+  --color-light: #a87f6f;
+  /* light brown */
+  --color-cream: #f7f2ea;
+  /* cream / background */
+
   /* 🖋️ Text */
-  --color-text: #141a1b;     /* main text */
-  --color-text-muted: #555;  /* muted secondary text */
-  
+  --color-text: #141a1b;
+  /* main text */
+  --color-text-muted: #555;
+  /* muted secondary text */
+
   /* 🏞️ Backgrounds */
-  --color-bg: var(--color-cream); /* default background */
-  --color-bg-light: #f7f2ea;      /* light beige */
-  --color-bg-dark: #2a2a2a;       /* dark background */
-  
+  --color-bg: var(--color-cream);
+  /* default background */
+  --color-bg-light: #f7f2ea;
+  /* light beige */
+  --color-bg-dark: #2a2a2a;
+  /* dark background */
+
   /* 📏 Layout */
   --max-width: 1100px;
-  
+
   /* 🎛️ UI */
-  --radius: 0.75rem;         /* universal corner radius */
-  --transition: 0.25s ease;  /* default transition */
+  --radius: 0.75rem;
+  /* universal corner radius */
+  --transition: 0.25s ease;
+  /* default transition */
 }
 
 
@@ -48,6 +59,7 @@ body {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   color: var(--color-text);
   background: var(--color-bg);
@@ -85,7 +97,7 @@ li {
 
 /* ==========================================================================
    HEADER / BRAND / NAV
-   - sticky header, brand, nav list, hamburger and mobile drawer
+   - sticky header, brand, nav list, and mobile drawer
    ========================================================================== */
 .site-header {
   background: linear-gradient(180deg, rgba(59, 67, 67, 0.08), transparent);
@@ -152,6 +164,18 @@ li {
   justify-content: center;
   z-index: 100;
 }
+
+body[data-theme="dark"] {
+  background: #111;
+  color: #eee;
+}
+
+body[data-theme="light"] {
+  background: #fff;
+  color: #111;
+}
+
+
 
 /* ==========================================================================
    HERO / INTRO
@@ -365,6 +389,21 @@ li {
   color: var(--color-text);
 }
 
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
 /* Hover / active / focus micro-interactions */
 .btn:hover {
   transform: translateY(-3px);
@@ -428,7 +467,8 @@ li {
   backdrop-filter: blur(6px) saturate(1.05);
   opacity: 0;
   transition: opacity 220ms ease;
-  pointer-events: none; /* 👉 change unless you want backdrop-close */
+  pointer-events: none;
+  /* 👉 change unless you want backdrop-close */
   z-index: 1000;
 }
 
@@ -439,7 +479,8 @@ li {
 
 .modal-panel {
   position: relative;
-  z-index: 1010; /* keep just one */
+  z-index: 1010;
+  /* keep just one */
   width: min(760px, 96%);
   max-height: 86vh;
   overflow-y: auto;
@@ -470,13 +511,21 @@ li {
 
 .modal.disabled {
   opacity: 0.6;
-  pointer-events: none; /* no interaction */
+  pointer-events: none;
+  /* no interaction */
 }
 
 
 @keyframes slideIn {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -611,7 +660,8 @@ li {
 
 @keyframes ripple {
   to {
-    transform: scale(3.5); /* spread a bit more */
+    transform: scale(3.5);
+    /* spread a bit more */
     opacity: 0;
   }
 }
@@ -619,7 +669,8 @@ li {
 /* Ensure parent is relative for ripple positioning */
 .ripple-container {
   position: relative;
-  overflow: hidden; /* keeps ripple inside element */
+  overflow: hidden;
+  /* keeps ripple inside element */
 }
 
 /* ==========================================================================
@@ -690,4 +741,31 @@ li {
 */
 .menu-grid.center-last {
   justify-items: center;
+}
+
+/* Scroll Bar Customization */
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;               /* scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;       /* track (background) */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;          /* scrollbar handle */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;          /* hover effect */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;     /* auto | thin | none */
+  scrollbar-color: #888 #f1f1f1; /* thumb color | track color */
 }

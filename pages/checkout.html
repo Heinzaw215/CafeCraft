@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Checkout</h2>
+  <div id="checkout-container"></div>
+
+  <script>
+    function renderCheckout() {
+      const item = JSON.parse(localStorage.getItem("checkoutItem"));
+      const container = document.getElementById("checkout-container");
+
+      if (!item) {
+        container.innerHTML = "<p>No item selected for checkout.</p>";
+        return;
+      }
+
+      container.innerHTML = `
+        <h3>${item.name}</h3>
+        <img src="${item.image}" alt="${item.name}" style="width:150px;height:150px;object-fit:cover;">
+        <p>Price: ${item.price.toLocaleString()} Ks</p>
+        <p>Quantity: ${item.quantity}</p>
+        <h3>Total: ${(item.price * item.quantity).toLocaleString()} Ks</h3>
+        <button onclick="placeOrder()">Place Order</button>
+      `;
+    }
+
+    function placeOrder() {
+      alert("Order placed successfully!");
+      localStorage.removeItem("checkoutItem");
+      window.location.href = "index.html"; // back to menu
+    }
+
+    renderCheckout();
+  </script>
+</body>
+</html>
