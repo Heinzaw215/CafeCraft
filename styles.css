@@ -33,6 +33,10 @@
   --color-bg-dark: #2a2a2a;
   /* dark background */
 
+  /* Font */
+  --font-main: 'Open Sans', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
   /* 📏 Layout */
   --max-width: 1100px;
 
@@ -60,13 +64,16 @@ body {
 }
 
 body {
-  margin: 0;
-  overflow-x: hidden;
-  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  font-family: var(--font-main);
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.45;
   scroll-behavior: smooth;
+}
+
+:focus {
+  outline: 3px solid rgba(217, 161, 90, 0.22);
+  outline-offset: 2px;
 }
 
 /* Accessible focus style (kept slightly warm to match aesthetic) */
@@ -136,11 +143,6 @@ li {
   font-size: 1.15rem;
 }
 
-/* Primary nav hidden on smallest screens */
-.primary-nav {
-  display: none;
-}
-
 .nav-list {
   display: flex;
   gap: 2rem;
@@ -155,29 +157,6 @@ li {
   align-items: center;
   gap: 0.5rem;
 }
-
-/* Hamburger (mobile) */
-.hamburger {
-  background: transparent;
-  border: 0;
-  padding: 0.4rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-body[data-theme="dark"] {
-  background: #111;
-  color: #eee;
-}
-
-body[data-theme="light"] {
-  background: #fff;
-  color: #111;
-}
-
-
 
 /* ==========================================================================
    HERO / INTRO
@@ -441,93 +420,8 @@ body[data-theme="light"] {
   color: var(--color-deep);
 }
 
-/* ==========================================================================
-   MODAL (unified)
-   - overlay, panel, animation
-   - show with .modal.open OR aria-hidden="false"
-   ========================================================================== */
-.modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal.open,
-.modal[aria-hidden="false"] {
-  display: flex;
-}
-
-.modal::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(16, 12, 10, 0.54);
-  -webkit-backdrop-filter: blur(6px) saturate(1.05);
-  backdrop-filter: blur(6px) saturate(1.05);
-  opacity: 0;
-  transition: opacity 220ms ease;
-  pointer-events: none;
-  /* 👉 change unless you want backdrop-close */
-  z-index: 1000;
-}
-
-.modal.open::before,
-.modal[aria-hidden="false"]::before {
-  opacity: 1;
-}
-
-.modal-panel {
-  position: relative;
-  z-index: 1010;
-  /* keep just one */
-  width: min(760px, 96%);
-  max-height: 86vh;
-  overflow-y: auto;
-  border-radius: 12px;
-  background: var(--color-cream);
-  box-shadow: 0 18px 50px rgba(11, 9, 8, 0.38);
-  padding: 1.25rem;
-  transform: translateY(8px) scale(.995);
-  opacity: 0;
-  transition: transform 220ms cubic-bezier(.2, .9, .2, 1), opacity 220ms ease;
-}
-
-.modal.open .modal-panel,
-.modal[aria-hidden="false"] .modal-panel {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: transparent;
-  border: 0;
-  font-size: 1.25rem;
-  cursor: pointer;
-}
-
-.modal.disabled {
-  opacity: 0.6;
-  pointer-events: none;
-  /* no interaction */
-}
-
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.form-status.error {
+  color: #d9534f;
 }
 
 /* ==========================================================================
@@ -748,26 +642,32 @@ body[data-theme="light"] {
 /* Scroll Bar Customization */
 /* For Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-  width: 12px;               /* scrollbar width */
+  width: 12px;
+  /* scrollbar width */
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;       /* track (background) */
+  background: #f1f1f1;
+  /* track (background) */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;          /* scrollbar handle */
+  background: #888;
+  /* scrollbar handle */
   border-radius: 10px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;          /* hover effect */
+  background: #555;
+  /* hover effect */
 }
 
 /* For Firefox */
 * {
-  scrollbar-width: thin;     /* auto | thin | none */
-  scrollbar-color: #888 #f1f1f1; /* thumb color | track color */
+  scrollbar-width: thin;
+  /* auto | thin | none */
+  scrollbar-color: #888 #f1f1f1;
+  /* thumb color | track color */
 }

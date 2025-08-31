@@ -12,8 +12,7 @@ class CafeFooter extends HTMLElement {
             <address>
             <p class="small">Preserved © ${year}</p>
               CaféCraft - Brew Coffee with love <br>
-              Location: 45 Artisan Lane, Downtown Yangon <br>
-              Phone: <a href="tel:+959876543210">+95 9 876 543 210</a><br>
+              <a href="tel:+959876543210">+95 9 876 543 210</a><br>
               Email: <a href="mailto:info@cafecraft.com.mm">info@cafecraft.com.mm</a>
             </address>
             <p>
