@@ -100,16 +100,30 @@ function getProductData(btn) {
   };
 }
 
-function addToCart(product) {
+function addToCart(item) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const existing = cart.find((item) => item.id === product.id);
 
+  // Check if item already exists
+  const existing = cart.find(cartItem => cartItem.id === item.id);
   if (existing) {
-    existing.quantity += 1;
+    existing.quantity += 1; // increment quantity
   } else {
-    cart.push(product);
+    cart.push({ ...item, quantity: 1 }); // add new item
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert(`${product.name} added to cart!`);
+
+  // Notify other tabs/windows that cart changed
+  window.dispatchEvent(new Event("storage"));
+
+  alert(`${item.name} added to cart!`);
 }
+
+// Example of adding event listeners
+document.querySelectorAll(".add-to-cart").forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    // Get item data from dataset or your menuData array
+    const item = menuData[index]; // replace with your actual menuData
+    addToCart(item);
+  });
+});
