@@ -1,0 +1,73 @@
+/* ===== Root Variables ===== */
+:root {
+  --color-bg: #f5f0eb;
+  --color-card: #fff8f0;
+  --color-accent: #D9A066;
+  --color-text: #3A2F2F;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --transition: 0.25s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+.checkout-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.checkout-card {
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkout-card .item-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.checkout-card .item-details h3 {
+  margin: 0.5rem 0;
+}
+
+.checkout-card .item-details p {
+  margin: 0.25rem 0;
+}
+
+.checkout-card button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.checkout-card button:hover {
+  background-color: #c79a5a;
+  transform: translateY(-2px);
+}
+
+.empty-msg {
+  font-size: 1rem;
+  color: var(--color-text);
+}

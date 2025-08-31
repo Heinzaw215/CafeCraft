@@ -37,7 +37,7 @@
   {
     "image": "../assets/Macchiato.webp",
     "name": "Macchiato",
-    "description": "Espresso with a touch of foam",
+    "description": "Espresso with <br> a touch of foam",
     "price": "3500",
     "category": "Coffee"
   },

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-  content="Get in touch with CaféCraft - artisanal coffee shop. Visit us, call, or send a message. We’re here to serve you!">
+    content="Get in touch with CaféCraft - artisanal coffee shop. Visit us, call, or send a message. We’re here to serve you!">
   <meta name="keywords" content="coffee, café, single-page, responsive, accessible, HTML, CSS, JavaScript">
   <meta name="author" content="CaféCraft Team">
   <title>CaféCraft — Handcrafted Coffee | Menu Page</title>
@@ -30,26 +30,33 @@
     <section class="menu-section">
       <h1 class="section-title">Our Menu</h1>
       <p>Explore our delicious offerings crafted with care.</p>
-      <div class="menu-items">
-      </div>
+      <section id="coffee-section">
+        <h2 class="section-subtitle">Coffee</h2>
+        <p>Rich, aromatic brews made from the finest beans.</p>
+        <ul id="coffeeList" class="menu-grid"></ul>
+      </section>
+
+      <section id="tea-section">
+        <h2 class="section-subtitle">Tea</h2>
+        <p>Soothing and refreshing blends for every palate.</p>
+        <ul id="teaList" class="menu-grid"></ul>
+      </section>
+
+      <section id="pastry-section">
+        <h2 class="section-subtitle">Pastries</h2>
+        <p>Freshly baked treats to complement your drink.</p>
+        <ul id="pastryList" class="menu-grid"></ul>
+      </section>
     </section>
   </main>
-  <h2>Coffee List</h2>
-  <ul id="coffeeList" class="menu-grid"></ul>
-
-  <h2>Tea List</h2>
-  <ul id="teaList" class="menu-grid"></ul>
-
-  <h2>Pastry List</h2>
-  <ul id="pastryList" class="menu-grid"></ul>
 
   <!-- Footer -->
   <cafe-footer></cafe-footer>
 
-  <script src="../app.js"></script>
-  <script src="../script/dataProvider.js" defer></script>
-  <script type="module" src="../components/navbar.js"></script>
-  <script type="module" src="../components/footer.js"></script>
+<script type="module" src="../app.js"></script>
+<script type="module" src="../script/dataProvider.js"></script>
+<script type="module" src="../components/navbar.js"></script>
+<script type="module" src="../components/footer.js"></script>
 </body>
 
 </html>

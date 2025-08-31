@@ -18,43 +18,10 @@ class CafeNavbar extends HTMLElement {
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </nav>
-
           <div class="header-actions">
-            <button id="themeToggle">🌓</button>
-            <button type="button" class="btn btn-cta" id="orderBtnTop">Order</button>
           </div>
         </div>
       </header>
-
-      <!-- Order Modal (site-wide) -->
-      <div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle" hidden>
-        <div class="modal-panel" role="document">
-        <span>
-          <button type="button" class="modal-close" id="orderClose" aria-label="Close order form">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <p id="orderTitle">Place an Order</p>
-          </span>
-
-          <form id="orderForm" class="form" novalidate>
-            <label for="o-name">Name</label>
-            <input id="o-name" name="name" type="text" required>
-
-            <label for="o-phone">Phone</label>
-            <input id="o-phone" name="phone" type="tel" required>
-
-            <label for="o-item">Item</label>
-            <select id="o-item" name="item" required>
-              <option value="">Select an item</option>
-            </select>
-
-            <label for="o-qty">Quantity</label>
-            <input id="o-qty" name="quantity" type="number" min="1" value="1" required>
-
-            <button type="submit" class="btn btn-cta">Send Order</button>
-            <p id="orderStatus" class="form-status" aria-live="polite"></p>
-          </form>
-        </div>
       </div>
     `;
 
