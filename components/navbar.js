@@ -32,21 +32,6 @@ class CafeNavbar extends HTMLElement {
         link.classList.add("active");
       }
     });
-
-    // Populate order item dropdown
-    fetch("../context/menu.json")
-      .then((res) => res.json())
-      .then((menu) => {
-        const select = this.querySelector("#o-item");
-        menu.forEach((item) => {
-          const opt = document.createElement("option");
-          opt.value = item.name;
-          opt.textContent = item.name;
-          select.appendChild(opt);
-        });
-      })
-      .catch((err) => console.error("Menu load failed:", err));
-
       // Theme toggle button
       const toggleBtn = document.getElementById("themeToggle");
       const userTheme = localStorage.getItem("theme");

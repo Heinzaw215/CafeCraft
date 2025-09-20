@@ -1,0 +1,26 @@
+/* ========================
+   Cozy Coffee Root Variables
+======================== */
+:root {
+  /* 🎨 Colors */
+  --color-accent: #FF6B35;       /* 🔥 highlight / CTA */
+  --color-espresso: #4B2E2A;     /* deep espresso brown */
+  --color-mocha: #6B4F3F;        /* roasted coffee base */
+  --color-cappuccino: #A67856;   /* light brown / secondary */
+  --color-cream: #F3E5D8;        /* creamy background */
+  --color-foam: #FFFFFF;         /* card / white elements */
+  --color-text: #2E2E2E;         /* main text */
+  --color-text-muted: #7D7D7D;   /* muted / secondary text */
+
+  /* 🖋️ Fonts */
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+  /* 📏 Layout */
+  --max-width: 1100px;
+
+  /* 🎛️ UI */
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --transition: 0.25s ease;
+}

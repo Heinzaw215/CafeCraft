@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "background-color: color-mix(in srgb, var(--color-accent) 88%, black 12%)",
+          "color: color-mix(in srgb, var(--color-mocha, #8C5E3C) 82%, var(--color-accent, #FF6B35) 18%)",
+          "background-color: color-mix(in srgb, var(--color-accent) 80%, black 20%)"
+        ]
+      }
+    ]
+  }
+}

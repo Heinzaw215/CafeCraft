@@ -1,33 +1,17 @@
-/* ===== Root Variables ===== */
-:root {
-  --color-deep: #6B4F3F;
-  /* Dark coffee */
-  --color-accent: #FF6B35;
-  /* Caramel accent */
-  --color-bg: #F5F0EB;
-  /* Warm cream */
-  --color-bg-light: #fff8f0;
-  /* Light background for forms */
-  --color-text: #3A2F2F;
-  /* Dark text */
-  --radius: 12px;
-  --transition: 0.25s ease;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
+/* ===== Contact Page (refactored to use unified variables) ===== */
 
-/* ===== Contact Info Section ===== */
 .contact-info {
   padding: 2rem 1rem;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--color-cream, #F3E5DA);
+  color: var(--color-text, #2E2E2E);
 }
 
 .contact-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading, 'Playfair Display'), serif;
   font-size: 2.4rem;
   text-align: center;
   margin-bottom: 0.5rem;
-  color: var(--color-deep);
+  color: var(--color-espresso, #4B2E2A);
 }
 
 .contact-subtitle {
@@ -35,9 +19,10 @@
   text-align: center;
   line-height: 1.5;
   margin-bottom: 2rem;
-  color: var(--color-text);
+  color: var(--color-text, #2E2E2E);
 }
 
+/* Cards grid */
 .contact-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -46,15 +31,16 @@
 }
 
 .contact-card {
-  background-color: var(--color-bg-light);
-  border-radius: var(--radius);
+  background-color: var(--color-foam, #FFFFFF);
+  border-radius: var(--radius, 12px);
   padding: 1.5rem 1rem;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow, 0 4px 12px rgba(0, 0, 0, 0.08));
   text-align: center;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition, 0.25s ease), box-shadow var(--transition, 0.25s ease);
 }
 
-.contact-card:hover {
+.contact-card:hover,
+.contact-card:focus-within {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
@@ -62,94 +48,108 @@
 .contact-card h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: var(--color-deep);
+  color: var(--color-espresso, #4B2E2A);
 }
 
 .contact-card p,
 .contact-card a {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: var(--color-text);
+  color: var(--color-text, #2E2E2E);
   margin: 0.25rem 0;
   display: block;
 }
 
 .contact-card a {
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent, #FF6B35);
   text-decoration: none;
 }
 
-.contact-card a:hover {
+.contact-card a:hover,
+.contact-card a:focus {
   text-decoration: underline;
+  outline: none;
 }
 
 /* ===== Contact Form Section ===== */
 .contact-form-section {
   padding: 3rem 1rem;
-  background-color: var(--color-bg-light);
-  color: var(--color-text);
+  background-color: var(--color-bg-light, #EBDCCB);
+  color: var(--color-text, #2E2E2E);
 }
 
 .contact-form-heading {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading, 'Playfair Display'), serif;
   font-size: 2rem;
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--color-deep);
+  color: var(--color-espresso, #4B2E2A);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
+  padding: 0 0.5rem;
 }
 
 .contact-form label {
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.25rem;
+  color: var(--color-text, #2E2E2E);
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 0.75rem 1rem;
-  border-radius: var(--radius);
-  border: 1px solid #ccc;
+  border-radius: var(--radius, 12px);
+  border: 1px solid #dcdcdc;
   font-size: 1rem;
-  background-color: #fff;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  background-color: var(--color-foam, #fff);
+  transition: border-color var(--transition, 0.25s), box-shadow var(--transition, 0.25s);
+  font-family: var(--font-main, system-ui, sans-serif);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(217, 160, 102, 0.2);
+  border-color: var(--color-accent, #FF6B35);
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.12);
   outline: none;
 }
 
 .contact-form textarea {
   resize: vertical;
+  min-height: 140px;
 }
 
 .contact-form button {
   width: fit-content;
   padding: 0.75rem 2rem;
-  background-color: var(--color-accent);
-  color: #fff;
+  background-color: var(--color-accent, #FF6B35);
+  color: var(--color-foam, #fff);
   border: none;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 12px);
   cursor: pointer;
   font-size: 1rem;
   align-self: center;
-  transition: background-color var(--transition), transform var(--transition);
+  transition: background-color var(--transition, 0.25s), transform var(--transition, 0.25s);
 }
 
-.contact-form button:hover {
-  background-color: #c79a5a;
+.contact-form button:hover,
+.contact-form button:focus {
+  background-color: color-mix(in srgb, var(--color-accent) 80%, black 20%);
+  /* subtle darken if supported */
   transform: translateY(-2px);
+  outline: none;
+}
+
+/* Fallback for browsers that don't support color-mix */
+.contact-form button:hover {
+  background-color: rgba(199, 154, 90, 0.95);
 }
 
 /* ===== Toast Notifications ===== */
@@ -157,11 +157,11 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: var(--color-accent);
-  color: #fff;
+  background-color: var(--color-accent, #FF6B35);
+  color: var(--color-foam, #fff);
   padding: 1rem 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border-radius: var(--radius, 12px);
+  box-shadow: var(--shadow, 0 4px 12px rgba(0, 0, 0, 0.08));
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px);
@@ -176,6 +176,7 @@
   animation: fadeOut 3s forwards;
 }
 
+/* Reuse fadeOut keyframes if present; otherwise keep local */
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -200,7 +201,7 @@
   }
 
   .contact-form {
-    width: 90%;
+    width: 92%;
   }
 
   .toast {
@@ -208,4 +209,10 @@
     right: 50%;
     transform: translateX(50%) translateY(20px);
   }
+}
+
+/* Accessibility niceties */
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+  box-shadow: 0 0 0 4px rgba(217, 70, 70, 0.08);
 }
